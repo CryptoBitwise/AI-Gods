@@ -159,6 +159,7 @@ const VoiceSummoning: React.FC<VoiceSummoningProps> = ({
             default:
                 setStatusMessage(`🎯 Command recognized: ${command.action}`);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onGodSummon, onRitualStart, onCouncilStart]);
 
     const toggleListening = () => {

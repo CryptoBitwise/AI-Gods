@@ -26,6 +26,7 @@ const GroqAISettings: React.FC<GroqAISettingsProps> = ({ isOpen, onClose }) => {
         setApiKey(currentConfig.apiKey);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const loadStatus = () => {
@@ -53,6 +54,7 @@ const GroqAISettings: React.FC<GroqAISettingsProps> = ({ isOpen, onClose }) => {
         setApiKey(currentConfig.apiKey);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const handleSaveConfig = async () => {

@@ -2,12 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
     Clock,
     Network,
-    PieChart,
     BarChart3,
-    Calendar,
     Brain,
-    Eye,
-    Zap,
     Star,
     Heart,
     Shield
@@ -40,7 +36,8 @@ const MemoryVisualization: React.FC<MemoryVisualizationProps> = ({ god, onClose 
 
     useEffect(() => {
         loadGodMemory();
-    }, [god.id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [god.id]);
 
     const loadGodMemory = async () => {
         setLoading(true);

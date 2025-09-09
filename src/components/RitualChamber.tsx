@@ -3,14 +3,8 @@ import {
     Flame,
     Star,
     Clock,
-    Zap,
-    Shield,
-    Heart,
     X,
-    Play,
-    Pause,
     RotateCcw,
-    AlertTriangle,
     CheckCircle,
     XCircle
 } from 'lucide-react';
@@ -48,7 +42,8 @@ const RitualChamber: React.FC<RitualChamberProps> = ({ god, onClose }) => {
             setActiveRitual(activeRituals[0]);
             setIsRitualActive(true);
         }
-    }, [god.id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [god.id]);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -69,6 +64,7 @@ const RitualChamber: React.FC<RitualChamberProps> = ({ god, onClose }) => {
         return () => {
             if (interval) clearInterval(interval);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isRitualActive, activeRitual]);
 
     const handleRitualSelect = (ritual: Ritual) => {

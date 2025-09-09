@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, Download, Share2, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, Download, Share2, Eye, EyeOff } from 'lucide-react';
 import { GODS } from '../data/gods';
 import chatStorage, { ChatSession } from '../services/chatStorage';
 

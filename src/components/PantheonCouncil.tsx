@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Users,
   Play,
   Pause,
   Square,
@@ -12,10 +11,7 @@ import {
   X,
   ChevronDown,
   ChevronUp,
-  Crown,
-  Zap,
-  Flame,
-  Sparkles
+  Crown
 } from 'lucide-react';
 import { God } from '../types/gods';
 import { GODS } from '../data/gods';
@@ -25,7 +21,7 @@ import pantheonCouncilService, {
   CouncilTopic,
   CouncilSettings
 } from '../services/pantheonCouncil';
-import ttsService from '../services/tts';
+// import ttsService from '../services/tts';
 
 interface PantheonCouncilProps {
   onClose: () => void;
