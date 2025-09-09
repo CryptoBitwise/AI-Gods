@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Brain, Heart, Shield, BookOpen, Clock, Star, Zap, Eye, EyeOff } from 'lucide-react';
 import { God } from '../types/gods';
 import { GodMemory } from '../services/memory';
@@ -16,11 +16,7 @@ const GodMemoryComponent: React.FC<GodMemoryProps> = ({ god, onClose }) => {
     const [showSecrets, setShowSecrets] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        loadGodMemory();
-    }, [god.id]);
-
-    const loadGodMemory = async () => {
+    const loadGodMemory = useCallback(async () => {
         setLoading(true);
         try {
             const godMemory = await memoryService.getGodMemory(god.id);
@@ -33,7 +29,12 @@ const GodMemoryComponent: React.FC<GodMemoryProps> = ({ god, onClose }) => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [god.id]);
+
+    useEffect(() => {
+        loadGodMemory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [god.id, loadGodMemory]);
 
     const getPersonalityColor = (value: number, type: 'relationship' | 'knowledge' | 'corruption') => {
         if (type === 'relationship') {

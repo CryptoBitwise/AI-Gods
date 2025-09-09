@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Settings, X } from 'lucide-react';
+import { Volume2, X } from 'lucide-react';
 import ttsService from '../services/tts';
 import { GOD_VOICES } from '../services/tts';
 

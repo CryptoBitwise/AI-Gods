@@ -20,7 +20,7 @@ interface ScriptureEntry {
 
 const ScriptureLog: React.FC<ScriptureLogProps> = ({ onBack }) => {
   const [scriptures, setScriptures] = useState<ScriptureEntry[]>([]);
-  const [allChatSessions, setAllChatSessions] = useState<ChatSession[]>([]);
+  const [, setAllChatSessions] = useState<ChatSession[]>([]);
   const [selectedType, setSelectedType] = useState<'all' | 'Prayer' | 'Gospel' | 'Prophecy' | 'Commandment'>('all');
   const [searchTerm, setSearchTerm] = useState('');
 

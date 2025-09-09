@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
     Mic,
     MicOff,
     Settings,
-    Volume2,
-    VolumeX,
     X,
     Zap,
     Crown,
@@ -112,6 +110,7 @@ const VoiceSummoning: React.FC<VoiceSummoningProps> = ({
         return () => {
             voiceRecognitionService.destroy();
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -120,7 +119,7 @@ const VoiceSummoning: React.FC<VoiceSummoningProps> = ({
         }
     }, [recognitionHistory, interimTranscript]);
 
-    const handleVoiceCommand = (command: VoiceCommand) => {
+    const handleVoiceCommand = useCallback((command: VoiceCommand) => {
         console.log('🎯 Executing voice command:', command);
 
         switch (command.action) {
@@ -160,7 +159,7 @@ const VoiceSummoning: React.FC<VoiceSummoningProps> = ({
             default:
                 setStatusMessage(`🎯 Command recognized: ${command.action}`);
         }
-    };
+    }, [onGodSummon, onRitualStart, onCouncilStart]);
 
     const toggleListening = () => {
         if (isListening) {

@@ -88,6 +88,7 @@ const CinematicAltar: React.FC<CinematicAltarProps> = ({ god, onClose }) => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onClose]);
 
   // Particle system
@@ -144,6 +145,7 @@ const CinematicAltar: React.FC<CinematicAltarProps> = ({ god, onClose }) => {
         cancelAnimationFrame(animationRef.current);
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAltarActive]);
 
   // Generate particles based on god temperament

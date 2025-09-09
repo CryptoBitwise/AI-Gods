@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Settings, Key, Zap, TestTube, AlertCircle, CheckCircle, X, Info } from 'lucide-react';
 import groqAIService, { GroqConfig } from '../services/groqAI';
 
@@ -32,7 +32,7 @@ const GroqAISettings: React.FC<GroqAISettingsProps> = ({ isOpen, onClose }) => {
     setStatus(groqAIService.getStatus());
   };
 
-  const loadAvailableModels = async () => {
+  const loadAvailableModels = useCallback(async () => {
     if (status.initialized) {
       try {
         const models = await groqAIService.getAvailableModels();
@@ -41,7 +41,19 @@ const GroqAISettings: React.FC<GroqAISettingsProps> = ({ isOpen, onClose }) => {
         console.error('Failed to load models:', error);
       }
     }
-  };
+  }, [status.initialized]);
+
+  useEffect(() => {
+    if (isOpen) {
+      loadStatus();
+      loadAvailableModels();
+      // Load current API key if available
+      const currentConfig = groqAIService.getConfig();
+      if (currentConfig.apiKey) {
+        setApiKey(currentConfig.apiKey);
+      }
+    }
+  }, [isOpen]);
 
   const handleSaveConfig = async () => {
     setIsLoading(true);
