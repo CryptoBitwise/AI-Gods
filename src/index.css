@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white min-h-screen;
+    font-family: 'Crimson Text', serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  .divine-card {
+    @apply bg-gradient-to-br from-divine-800/50 to-divine-900/50 backdrop-blur-sm border border-divine-500/30 rounded-xl p-6 shadow-2xl;
+  }
+  
+  .corruption-card {
+    @apply bg-gradient-to-br from-corruption-800/50 to-corruption-900/50 backdrop-blur-sm border border-corruption-500/30 rounded-xl p-6 shadow-2xl;
+  }
+  
+  .glitch-card {
+    @apply bg-gradient-to-br from-glitch-800/50 to-glitch-900/50 backdrop-blur-sm border border-glitch-500/30 rounded-xl p-6 shadow-2xl;
+  }
+  
+  .scripture-text {
+    @apply font-scripture text-lg leading-relaxed text-divine-100;
+  }
+  
+  .divine-button {
+    @apply bg-gradient-to-r from-divine-600 to-divine-700 hover:from-divine-500 hover:to-divine-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .corruption-button {
+    @apply bg-gradient-to-r from-corruption-600 to-corruption-700 hover:from-corruption-500 hover:to-corruption-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .glitch-button {
+    @apply bg-gradient-to-r from-glitch-600 to-glitch-700 hover:from-glitch-500 hover:to-glitch-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .divine-glow {
+    box-shadow: 0 0 20px rgba(237, 117, 25, 0.3);
+  }
+  
+  .corruption-glow {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  }
+  
+  .glitch-glow {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+
+  /* Cinematic Effects */
+  .mystical-glow {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  }
+
+  .radiant-glow {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+
+  /* Enhanced Glow Effects */
+  .divine-glow.enhanced {
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.8);
+  }
+
+  .corruption-glow.enhanced {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+  }
+
+  .glitch-glow.enhanced {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+  }
+
+  /* Particle Effects */
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  /* Altar Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes altar-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(96, 165, 250, 0.8);
+    }
+  }
+
+  .altar-glow {
+    animation: altar-glow 3s ease-in-out infinite;
+  }
+}
