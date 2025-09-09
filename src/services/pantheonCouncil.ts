@@ -268,7 +268,7 @@ class PantheonCouncilService {
   private selectNextSpeaker(): God | null {
     if (!this.currentSession) return null;
 
-    const { gods, messages, settings } = this.currentSession;
+    const { gods, messages } = this.currentSession;
 
     // Get the last few messages to see who has spoken recently
     const recentSpeakers = messages
@@ -296,7 +296,7 @@ class PantheonCouncilService {
 
     try {
       // Get god's memory and personality
-      const memory = await memoryService.getGodMemory(god.id);
+      // const memory = await memoryService.getGodMemory(god.id);
       const recentMessages = this.currentSession.messages.slice(-5);
 
       // Build context for AI

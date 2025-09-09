@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Brain, Heart, Shield, BookOpen, Clock, Star, Zap, Eye, EyeOff } from 'lucide-react';
 import { God } from '../types/gods';
-import { GodMemory, MemoryEntry } from '../services/memory';
+import { GodMemory } from '../services/memory';
 import memoryService from '../services/memory';
 import { getMemorySummary } from '../services/memoryInit';
 

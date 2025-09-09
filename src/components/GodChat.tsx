@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { God } from '../types/gods';
 import { ArrowLeft, Send, Heart, Flame, Sparkles, Volume2, VolumeX, Zap, Download, Trash2 } from 'lucide-react';
 import ttsService from '../services/tts';
@@ -28,7 +28,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
   const [currentSession, setCurrentSession] = useState<StoredChatMessage[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const loadChatHistory = () => {
+  const loadChatHistory = useCallback(() => {
     try {
       const savedSession = chatStorage.getCurrentSession(god.id);
       if (savedSession && savedSession.messages.length > 0) {
@@ -46,9 +46,9 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
     } catch (error) {
       console.error('Error loading chat history:', error);
     }
-  };
+  }, [god.id, god.name]);
 
-  const saveMessage = (message: ChatMessage) => {
+  const saveMessage = useCallback((message: ChatMessage) => {
     try {
       chatStorage.addMessage(god.id, {
         role: message.type === 'user' ? 'user' : 'assistant',
@@ -58,7 +58,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
     } catch (error) {
       console.error('Error saving message:', error);
     }
-  };
+  }, [god.id]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -67,7 +67,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
   // Load saved chat history when component mounts
   useEffect(() => {
     loadChatHistory();
-  }, [god.id]);
+  }, [god.id, loadChatHistory]);
 
   // Initialize welcome message if no chat history exists
   useEffect(() => {
@@ -82,7 +82,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
       // Save the welcome message to storage
       saveMessage(welcomeMessage);
     }
-  }, [messages.length, currentSession.length, god.name, god.domain]);
+  }, [messages.length, currentSession.length, god.name, god.domain, saveMessage]);
 
   useEffect(() => {
     scrollToBottom();

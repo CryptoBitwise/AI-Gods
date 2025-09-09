@@ -219,4 +219,5 @@ class ChatStorageService {
     }
 }
 
-export default new ChatStorageService();
+const chatStorage = new ChatStorageService();
+export default chatStorage;

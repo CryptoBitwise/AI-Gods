@@ -1,6 +1,6 @@
-import { God } from '../types/gods';
+// import { God } from '../types/gods';
 import memoryService from './memory';
-import { RitualMemory } from './memory';
+// import { RitualMemory } from './memory';
 
 export interface Ritual {
     id: string;

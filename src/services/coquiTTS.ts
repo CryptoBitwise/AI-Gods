@@ -463,4 +463,5 @@ class CoquiTTSService {
     }
 }
 
-export default new CoquiTTSService();
+const coquiTTS = new CoquiTTSService();
+export default coquiTTS;

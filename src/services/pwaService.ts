@@ -119,7 +119,7 @@ class PWAService {
         if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
             try {
                 // Request background sync for offline actions
-                const registration = await navigator.serviceWorker.ready;
+                // const registration = await navigator.serviceWorker.ready;
                 // Note: Background sync API is not widely supported yet
                 // await registration.sync.register('offline-ritual');
                 console.log('🔄 Background sync would be registered here when supported');
