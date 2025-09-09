@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { God } from '../types/gods';
-import { ArrowLeft, Send, Heart, Flame, Sparkles, Volume2, VolumeX, Zap, Download, Upload, Trash2 } from 'lucide-react';
+import { ArrowLeft, Send, Heart, Flame, Sparkles, Volume2, VolumeX, Zap, Download, Trash2 } from 'lucide-react';
 import ttsService from '../services/tts';
 import groqAIService from '../services/groqAI';
 import memoryService from '../services/memory';

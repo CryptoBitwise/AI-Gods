@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
-  Flame, 
-  Star, 
-  Moon, 
-  Sun, 
-  Zap, 
-  Eye, 
-  EyeOff, 
   Volume2, 
   VolumeX,
   Settings,
@@ -15,7 +8,6 @@ import {
   ArrowDown,
   ArrowLeft,
   ArrowRight,
-  Space,
   Key
 } from 'lucide-react';
 import { God } from '../types/gods';
