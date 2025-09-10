@@ -57,7 +57,7 @@ AI Gods
 │   ├── Manifest
 │   └── Offline Support
 └── AI Integration
-    ├── Groq API
+    ├── OpenAI API
     ├── Voice Recognition
     └── Text-to-Speech
 ```
@@ -66,7 +66,7 @@ AI Gods
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS
 - **PWA**: Workbox, Service Workers, Web App Manifest
-- **AI**: Groq API (Llama 3.1, Mixtral, Gemma models)
+- **AI**: OpenAI API (GPT-4, GPT-3.5, GPT-4o models)
 - **Voice**: Web Speech API, Custom TTS
 - **Storage**: LocalStorage, IndexedDB
 - **Build**: Create React App, Webpack
@@ -210,7 +210,7 @@ const speakAsGod = async (text: string, temperament: string) => {
 - **React + TypeScript**: Building complex, type-safe React applications with modern hooks and patterns
 - **PWA Development**: Implementing service workers, manifest files, and offline functionality
 - **Voice Integration**: Web Speech API for both speech-to-text and text-to-speech
-- **AI Integration**: Working with Groq API and managing different AI models
+- **AI Integration**: Working with OpenAI API and managing different AI models
 - **State Management**: Complex state management across multiple components and services
 - **CSS/Tailwind**: Creating immersive, dark-themed UIs with animations and transitions
 
@@ -277,7 +277,7 @@ const speakAsGod = async (text: string, temperament: string) => {
 
 - Node.js 18+
 - npm or yarn
-- Groq API key
+- OpenAI API key
 
 ### Installation
 
@@ -290,7 +290,7 @@ cd AI-Gods
 npm install
 
 # Set up environment variables
-echo "REACT_APP_GROQ_API_KEY=your_api_key_here" > .env
+echo "REACT_APP_OPENAI_API_KEY=your_api_key_here" > .env
 
 # Start development server
 npm start
@@ -299,7 +299,7 @@ npm start
 ### Environment Variables
 
 ```env
-REACT_APP_GROQ_API_KEY=your_groq_api_key_here
+REACT_APP_OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 ## 🛠️ Available Scripts
@@ -316,7 +316,7 @@ The app is deployed on Vercel and can be accessed at: [https://ai-gods.vercel.ap
 ### Deploy to Vercel
 
 1. Connect your GitHub repository to Vercel
-2. Add your `REACT_APP_GROQ_API_KEY` environment variable
+2. Add your `REACT_APP_OPENAI_API_KEY` environment variable
 3. Deploy automatically on every push
 
 ## 📱 PWA Features
@@ -336,7 +336,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Groq** for providing the AI API
+- **OpenAI** for providing the AI API
 - **React** team for the amazing framework
 - **Tailwind CSS** for the utility-first CSS framework
 - **Lucide React** for the beautiful icons

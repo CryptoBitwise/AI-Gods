@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { God } from '../types/gods';
 import { ArrowLeft, Send, Heart, Flame, Sparkles, Volume2, VolumeX, Zap, Download, Trash2 } from 'lucide-react';
 import ttsService from '../services/tts';
-import groqAIService from '../services/groqAI';
+import openAIService from '../services/openAI';
 import memoryService from '../services/memory';
 import chatStorage, { ChatMessage as StoredChatMessage } from '../services/chatStorage';
 
@@ -102,7 +102,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
 
     try {
       // Check if Groq AI is ready
-      if (groqAIService.isReady()) {
+      if (openAIService.isReady()) {
         // Get god memory for context
         const godMemory = await memoryService.getGodMemory(god.id);
 
@@ -128,7 +128,7 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
         };
 
         // Generate real AI response
-        const aiResponse = await groqAIService.generateGodResponse(context);
+        const aiResponse = await openAIService.generateGodResponse(context);
 
         // Update god memory with this interaction
         if (godMemory) {
@@ -299,12 +299,12 @@ const GodChat: React.FC<GodChatProps> = ({ god, onBack }) => {
 
           {/* AI Status Indicator */}
           <div className="flex items-center justify-center space-x-2 mt-2">
-            <div className={`w-2 h-2 rounded-full ${groqAIService.isReady() ? 'bg-green-400' : 'bg-yellow-400'
+            <div className={`w-2 h-2 rounded-full ${openAIService.isReady() ? 'bg-green-400' : 'bg-yellow-400'
               }`}></div>
             <span className="text-xs text-slate-400">
-              {groqAIService.isReady() ? 'AI Active' : 'AI Fallback'}
+              {openAIService.isReady() ? 'AI Active' : 'AI Fallback'}
             </span>
-            {groqAIService.isReady() && (
+            {openAIService.isReady() && (
               <Zap className="text-blue-400" size={12} />
             )}
           </div>

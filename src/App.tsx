@@ -8,30 +8,30 @@ import GodForge from './components/GodForge';
 import Navigation from './components/Navigation';
 import ErrorBoundary from './components/ErrorBoundary';
 import TTSSettings from './components/TTSSettings';
-import GroqAISettings from './components/GroqAISettings';
+import OpenAISettings from './components/OpenAISettings';
 import PWAInstall from './components/PWAInstall';
 import VoiceSummoning from './components/VoiceSummoning';
 import { initializeGodMemories } from './services/memoryInit';
-import groqAIService from './services/groqAI';
+import openAIService from './services/openAI';
 
 function App() {
   const [selectedGod, setSelectedGod] = useState<God | null>(null);
   const [currentView, setCurrentView] = useState<'pantheon' | 'chat' | 'scripture' | 'forge'>('pantheon');
   const [isTTSSettingsOpen, setIsTTSSettingsOpen] = useState(false);
-  const [isGroqAISettingsOpen, setIsGroqAISettingsOpen] = useState(false);
+  const [isOpenAISettingsOpen, setIsOpenAISettingsOpen] = useState(false);
   const [isVoiceSummoningOpen, setIsVoiceSummoningOpen] = useState(false);
 
   // Initialize god memories and AI service when app starts
   useEffect(() => {
     initializeGodMemories();
 
-    // Initialize Groq AI service if API key is available
-    if (process.env.REACT_APP_GROQ_API_KEY) {
-      groqAIService.initialize().then(success => {
+    // Initialize OpenAI service if API key is available
+    if (process.env.REACT_APP_OPENAI_API_KEY) {
+      openAIService.initialize().then(success => {
         if (success) {
-          console.log('✅ Groq AI service initialized successfully');
+          console.log('✅ OpenAI service initialized successfully');
         } else {
-          console.log('⚠️ Groq AI service failed to initialize');
+          console.log('⚠️ OpenAI service failed to initialize');
         }
       });
     }
@@ -67,7 +67,7 @@ function App() {
                 </button>
 
                 <button
-                  onClick={() => setIsGroqAISettingsOpen(true)}
+                  onClick={() => setIsOpenAISettingsOpen(true)}
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600/50 hover:bg-blue-500/50 rounded-lg transition-colors text-divine-100 hover:text-white"
                 >
                   <span className="text-lg">🤖</span>
@@ -136,10 +136,10 @@ function App() {
         onClose={() => setIsTTSSettingsOpen(false)}
       />
 
-      {/* Groq AI Settings Modal */}
-      <GroqAISettings
-        isOpen={isGroqAISettingsOpen}
-        onClose={() => setIsGroqAISettingsOpen(false)}
+      {/* OpenAI Settings Modal */}
+      <OpenAISettings
+        isOpen={isOpenAISettingsOpen}
+        onClose={() => setIsOpenAISettingsOpen(false)}
       />
 
       {/* Voice Summoning Modal */}

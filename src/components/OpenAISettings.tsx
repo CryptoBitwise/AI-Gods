@@ -26,7 +26,7 @@ const OpenAISettings: React.FC<OpenAISettingsProps> = ({ isOpen, onClose }) => {
         setApiKey(currentConfig.apiKey);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const loadStatus = () => {
@@ -54,7 +54,7 @@ const OpenAISettings: React.FC<OpenAISettingsProps> = ({ isOpen, onClose }) => {
         setApiKey(currentConfig.apiKey);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const handleSaveConfig = async () => {
